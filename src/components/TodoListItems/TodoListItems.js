@@ -9,19 +9,21 @@ export default class TodoListItems extends Component {
   };
 
   onClickLabel = () => {
-    this.setState((state) => {
-      return { done: !state.done };
+    this.setState(({ done }) => {
+      //с деструктуриpацией state.done
+      return { done: !done };
     });
   };
 
   onClickButton = () => {
     this.setState((state) => {
+      // прямая отсылка к state
       return { important: !state.important };
     });
   };
 
   render() {
-    const { label } = this.props;
+    const { label, onDeleted } = this.props;
     const { done, important } = this.state;
 
     let classNames = 'todo-list-item';
@@ -51,6 +53,7 @@ export default class TodoListItems extends Component {
         <button
           type="button"
           className="btn btn-outline-danger btn-sm float-right"
+          onClick={onDeleted}
         >
           <i className="fa fa-trash-o" />
         </button>
