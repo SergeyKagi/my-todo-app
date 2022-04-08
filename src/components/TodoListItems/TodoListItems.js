@@ -3,11 +3,13 @@ import react from 'react';
 import './TodoListItems.css';
 
 export default class TodoListItems extends Component {
+  /* Данные приходят из APP как пропсы, стейт уже не нужен (как и класс выше, можно сделать функцию)
   state = {
     done: false,
     important: false,
   };
 
+  
   onClickLabel = () => {
     this.setState(({ done }) => {
       //с деструктуриpацией state.done
@@ -21,10 +23,17 @@ export default class TodoListItems extends Component {
       return { important: !state.important };
     });
   };
+  */
 
   render() {
-    const { label, onDeleted } = this.props;
-    const { done, important } = this.state;
+    const {
+      label,
+      onDeleted,
+      onToggleDone,
+      onToggleImportant,
+      done,
+      important,
+    } = this.props;
 
     let classNames = 'todo-list-item';
 
@@ -38,14 +47,14 @@ export default class TodoListItems extends Component {
 
     return (
       <span className={classNames}>
-        <span className="todo-list-item-label " onClick={this.onClickLabel}>
+        <span className="todo-list-item-label " onClick={onToggleDone}>
           {label}
         </span>
 
         <button
           type="button"
           className="btn btn-outline-success btn-sm float-right"
-          onClick={this.onClickButton}
+          onClick={onToggleImportant}
         >
           <i className="fa fa-exclamation" />
         </button>

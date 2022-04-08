@@ -42,6 +42,14 @@ export default class App extends Component {
     });
   };
 
+  onToggleImportant = (id) => {
+    console.log('Toggle Important', id);
+  };
+
+  onToggleDone = (id) => {
+    console.log('Toggle Done', id);
+  };
+
   render() {
     return (
       <div className="todo-app">
@@ -50,7 +58,12 @@ export default class App extends Component {
           <SearchTodoItems />
           <ItemStatusFilter />
         </div>
-        <TodoList todos={this.state.todoData} onDel={this.deleteItem} />
+        <TodoList
+          todos={this.state.todoData}
+          onDel={this.deleteItem}
+          onToggleImportant={this.onToggleImportant}
+          onToggleDone={this.onToggleDone}
+        />
         <AddItem addItemFunc={this.addItem} />
       </div>
     );
