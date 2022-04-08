@@ -2,7 +2,7 @@ import React from 'react';
 import './SearchTodoItems.css';
 
 const SearchTodoItems = () => {
-  const searchText = 'Type here please';
+  const searchText = 'Search';
   return (
     <input
       type="text"

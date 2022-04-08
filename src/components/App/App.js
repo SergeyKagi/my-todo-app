@@ -13,7 +13,7 @@ export default class App extends Component {
   state = {
     todoData: [
       { label: 'Drink Coffe!', important: false, id: 1 },
-      { label: 'Make awsome React - App', important: true, id: 2 },
+      { label: 'Make awesome React - App', important: true, id: 2 },
       { label: 'Have a lunch', important: false, id: 3 },
     ],
   };
