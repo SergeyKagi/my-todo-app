@@ -47,7 +47,7 @@ export default class App extends Component {
     });
   };
 
-  toggleUnverseFunc(arr, id, toggleProp) {
+  toggleUniverseFunc(arr, id, toggleProp) {
     const indx = arr.findIndex((el) => el.id === id);
     const oldItem = arr[indx];
     const newItem = { ...oldItem, [toggleProp]: !oldItem[toggleProp] };
@@ -56,13 +56,13 @@ export default class App extends Component {
 
   onToggleImportant = (id) => {
     this.setState(({ todoData }) => {
-      return { todoData: this.toggleUnverseFunc(todoData, id, 'important') };
+      return { todoData: this.toggleUniverseFunc(todoData, id, 'important') };
     });
   };
 
   onToggleDone = (id) => {
     this.setState(({ todoData }) => {
-      return { todoData: this.toggleUnverseFunc(todoData, id, 'done') };
+      return { todoData: this.toggleUniverseFunc(todoData, id, 'done') };
     });
   };
 
