@@ -47,33 +47,22 @@ export default class App extends Component {
     });
   };
 
+  toggleUnverseFunc(arr, id, toggleProp) {
+    const indx = arr.findIndex((el) => el.id === id);
+    const oldItem = arr[indx];
+    const newItem = { ...oldItem, [toggleProp]: !oldItem[toggleProp] };
+    return [...arr.slice(0, indx), newItem, ...arr.slice(indx + 1)];
+  }
+
   onToggleImportant = (id) => {
     this.setState(({ todoData }) => {
-      const indx = todoData.findIndex((el) => el.id === id);
-      const oldItem = todoData[indx];
-      const newItem = { ...oldItem, important: !oldItem.important };
-      const newArray = [
-        ...todoData.slice(0, indx),
-        newItem,
-        ...todoData.slice(indx + 1),
-      ];
-
-      return { todoData: newArray };
+      return { todoData: this.toggleUnverseFunc(todoData, id, 'important') };
     });
   };
 
   onToggleDone = (id) => {
     this.setState(({ todoData }) => {
-      const indx = todoData.findIndex((el) => el.id === id);
-      const oldItem = todoData[indx];
-      const newItem = { ...oldItem, done: !oldItem.done };
-      const newArray = [
-        ...todoData.slice(0, indx),
-        newItem,
-        ...todoData.slice(indx + 1),
-      ];
-
-      return { todoData: newArray };
+      return { todoData: this.toggleUnverseFunc(todoData, id, 'done') };
     });
   };
 
